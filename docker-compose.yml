@@ -44,7 +44,7 @@ services:
     volumes:
       - ./etc/docker/db/data:/var/lib/mysql
     ports:
-      - "33311:3306"
+      - "33312:3306"
     environment:
       TZ: "Asia/Tokyo"
       MYSQL_ALLOW_EMPTY_PASSWORD: "yes"
