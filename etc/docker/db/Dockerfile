@@ -17,3 +17,5 @@ RUN { \
     echo '[client]'; \
     echo 'default-character-set=utf8mb4'; \
 } > /etc/mysql/conf.d/charset.cnf
+
+COPY ./etc/docker/db/conf/my.cnf /etc/mysql/conf.d/my.cnf
