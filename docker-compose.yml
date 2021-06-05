@@ -8,15 +8,16 @@ services:
       dockerfile: etc/docker/web/Dockerfile
       args:
         APP_ENV: ${APP_ENV}
+        SERVER_NAME: ${SERVER_NAME}
+        WEB_PORT: ${WEB_PORT}
     ports:
-      - "8831:80"
+      - 8832:80
     env_file: .env
     links:
       - app
     volumes:
       - .:/var/www/html
-    networks:
-      - default
+    restart: always
   app:
     container_name: ${SITE}-wordpress-app
     build:
@@ -33,8 +34,7 @@ services:
     volumes:
       - .:/var/www/html
     env_file: .env
-    networks:
-      - default
+    restart: always
   db:
     container_name: ${SITE}-wordpress-db
     build:
@@ -52,6 +52,4 @@ services:
       MYSQL_USER: ${DB_USER}
       MYSQL_PASSWORD: ${DB_PASSWORD}
     env_file: .env
-    networks:
-      - default
 

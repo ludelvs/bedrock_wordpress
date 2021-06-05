@@ -1,4 +1,4 @@
-FROM php:7.4.16-fpm
+FROM php:7.4.18-fpm
 
 ARG APP_ENV
 ARG SITE
@@ -24,8 +24,6 @@ ENV DB_PORT=$DB_PORT
 
 ENV ENTRYKIT_VERSION 0.4.0
 ENV DOCKERIZE_VERSION v0.6.1
-
-RUN echo $DB_HOST
 
 RUN apt-get update -y && \
     apt-get install -y libzip-dev zip libpq-dev libpcre3-dev zlib1g-dev libpng-dev libmcrypt-dev curl libcurl4-openssl-dev vim libjpeg-dev libfreetype6-dev libxml2-dev libonig-dev \
